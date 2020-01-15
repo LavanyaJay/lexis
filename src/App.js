@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import Language from "../src/components/Language";
 import FlashCard from "../src/components/FlashCard";
+import AddCustomForm from "./components/AddCustomForm";
 import Spinner from "react-bootstrap/Spinner";
 import { withRouter } from "react-router-dom";
 import { getFlashCards } from "./actions/flashcards";
@@ -12,6 +13,7 @@ function App(props) {
   const [data, setData] = useState([]);
 
   const [showLoading, setShowLoading] = useState(true);
+  const [showForm, setShowForm] = useState(false);
 
   const [selectValue, setSelectValue] = useState("");
 
@@ -39,6 +41,12 @@ function App(props) {
     dispatch(getFlashCards(selectValue));
   };
 
+  const addQHandler = () => {
+    setShowForm(true);
+  };
+
+  const addFlashCard = () => {};
+
   let flashCard = flashcards[index];
 
   return (
@@ -50,57 +58,29 @@ function App(props) {
       )}
 
       <div className="container">
-        <div className="main">
-          <Language
-            data={data}
-            onClickHandler={onClickHandler}
-            setSelectValue={setSelectValue}
-          />
-          <FlashCard
-            flashCard={flashCard}
-            setIndex={setIndex}
-            fclength={flashcards.length}
-            index={index}
-          />
-          {/*           <div class="part3">
-            <div class="customClass">
-              <button
-                id="clickBtn"
-                type="submit"
-                class="clickBtnClass"
-                enabled="true"
-                onclick="clickBtn()"
-              >
-                Click To Add your Own Cards{" "}
-              </button>
-              <div class="up">
-                <label class="label-custom"> Category: CUSTOM </label>
-              </div>
-            </div>
-          </div */}
-          >
-          {/*           <div class="part4">
-            <div class="formClass">
-              <div class="up">
-                <label class="label-1">Question:</label>
-                <input type="text" id="qinput" class="input-1" disabled />
-              </div>
-              <div class="down">
-                <label class="label-2">Answer:</label>
-                <input type="text" id="ainput" class="input-2" disabled />
-              </div>
-              <button
-                id="addBtn"
-                type="submit"
-                class="addBtnClass"
-                disabled="true"
-                onclick="addCustomCard()"
-              >
-                {" "}
-                Add{" "}
-              </button>
-            </div>
-          </div> */}
+        <div className="submain">
+          <div className="main">
+            <Language
+              data={data}
+              onClickHandler={onClickHandler}
+              setSelectValue={setSelectValue}
+              addQHandler={addQHandler}
+              setShowForm={setShowForm}
+            />
+
+            <FlashCard
+              flashCard={flashCard}
+              setIndex={setIndex}
+              fclength={flashcards.length}
+              index={index}
+            />
+          </div>
+          {showForm && (
+            <AddCustomForm
+              selectValue={selectValue}
+              addFlashCard={addFlashCard}
+            />
+          )}
         </div>
       </div>
     </div>
