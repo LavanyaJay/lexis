@@ -20,33 +20,35 @@ body {
 .main {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   margin: auto;
+  text-align: center;
+}
 
-  justify-content: space-evenly;
+.submain {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-left: 3.7vw;
 }
 
 .part1 {
   margin-top: 10px;
-  width: 30%;
+  width: 30vw;
   border: 1px solid black;
-  height: 35vh;
+  height: 40vh;
 }
 .part2 {
   margin-top: 10px;
-  width: 55%;
-  height: 35vh;
+  width: 40vw;
+  height: 40vh;
   border: 1px solid green;
 }
-.part3 {
-  height: 35vh;
-  width: 30%;
-  border: 1px solid black;
-}
+
 .part4 {
   height: 35vh;
-  width: 55%;
+  width: 70vw;
   border: 1px solid black;
+  margin-left: 3vw;
 }
 .categoryClass {
   display: flex;
@@ -72,12 +74,20 @@ body {
   background: green;
   margin-top: 3vh;
 }
-.nextBtnclass {
-  height: 30px;
-  width: 130px;
-  margin-top: 30px;
-  margin-left: 220px;
+.nextBtnClass {
+  height: 5vh;
+  width: 5vw;
+  background: green;
+  margin-top: 2vh;
 }
+
+.clickBtnClass {
+  height: 5vh;
+  width: 10vw;
+  background: green;
+  margin-top: 2vh;
+}
+
 /*Card syles */
 
 .card-wrapper {
@@ -179,10 +189,4 @@ body {
   width: 130px;
   margin-top: 20px;
   margin-left: 100px;
-}
-.clickBtnClass {
-  height: 30px;
-  width: 180px;
-  margin-top: 20px;
-  margin-left: 60px;
 }

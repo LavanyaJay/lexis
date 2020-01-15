@@ -13,6 +13,7 @@ export default function Language(props) {
               className="selectBtnClass"
               onChange={e => {
                 props.setSelectValue(e.target.value);
+                props.setShowForm(false);
               }}
             >
               <option></option>
@@ -33,6 +34,14 @@ export default function Language(props) {
           Play
         </button>
       </div>
+      <button
+        id="add"
+        type="submit"
+        className="clickBtnClass"
+        onClick={props.addQHandler}
+      >
+        Add Your Own Flash Cards
+      </button>
     </div>
   );
 }
