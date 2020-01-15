@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import Language from "../src/components/Language";
+import FlashCard from "../src/components/FlashCard";
 import Spinner from "react-bootstrap/Spinner";
 import { withRouter } from "react-router-dom";
 import { getFlashCards } from "./actions/flashcards";
@@ -55,35 +56,12 @@ function App(props) {
             onClickHandler={onClickHandler}
             setSelectValue={setSelectValue}
           />
-          <div className="part2">
-            <div className="card-wrapper">
-              <div className="card">
-                <div className="card-front">
-                  {flashCard && <p id="qcard">{flashCard.word}</p>}
-                  {!flashCard && <p id="qcard">Play Flashcard</p>}
-                </div>
-                <div class="card-back">
-                  {flashCard && <p id="acard">{flashCard.meaning}</p>}
-                  {!flashCard && <p id="acard">Besto!!</p>}
-                </div>
-              </div>
-            </div>
-            {flashCard && (
-              <button
-                id="nextBtn"
-                type="submit"
-                className="nextBtnClass"
-                onClick={() => {
-                  if (index === flashcards.length - 1) {
-                    index = -1;
-                  }
-                  setIndex(index + 1);
-                }}
-              >
-                Next
-              </button>
-            )}
-          </div>
+          <FlashCard
+            flashCard={flashCard}
+            setIndex={setIndex}
+            fclength={flashcards.length}
+            index={index}
+          />
           {/*           <div class="part3">
             <div class="customClass">
               <button
