@@ -14,11 +14,14 @@ function App(props) {
 
   const [selectValue, setSelectValue] = useState("");
 
-  const [flashcards] = useSelector(state => state.flashcards);
+  const flashcards = useSelector(state => state.flashcards);
+
+  let [index, setIndex] = useState(0);
 
   const dispatch = useDispatch();
 
   const apiUrl = "http://localhost:4000/langs";
+
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(apiUrl);
@@ -35,6 +38,8 @@ function App(props) {
     dispatch(getFlashCards(selectValue));
   };
 
+  let flashCard = flashcards[index];
+
   return (
     <div>
       {showLoading && (
@@ -50,30 +55,36 @@ function App(props) {
             onClickHandler={onClickHandler}
             setSelectValue={setSelectValue}
           />
-
           <div className="part2">
             <div className="card-wrapper">
-              <div class="card">
-                <div class="card-front">
-                  <p id="qcard">Play Flashcard</p>
+              <div className="card">
+                <div className="card-front">
+                  {flashCard && <p id="qcard">{flashCard.word}</p>}
+                  {!flashCard && <p id="qcard">Play Flashcard</p>}
                 </div>
                 <div class="card-back">
-                  <p id="acard">Besto!!</p>
+                  {flashCard && <p id="acard">{flashCard.meaning}</p>}
+                  {!flashCard && <p id="acard">Besto!!</p>}
                 </div>
               </div>
             </div>
-            <button
-              id="nextBtn"
-              type="submit"
-              class="nextBtnClass"
-              disabled="true"
-              onClick="loadAllCards(jsObj,length)"
-            >
-              {" "}
-              Next{" "}
-            </button>
+            {flashCard && (
+              <button
+                id="nextBtn"
+                type="submit"
+                className="nextBtnClass"
+                onClick={() => {
+                  if (index === flashcards.length - 1) {
+                    index = -1;
+                  }
+                  setIndex(index + 1);
+                }}
+              >
+                Next
+              </button>
+            )}
           </div>
-          <div class="part3">
+          {/*           <div class="part3">
             <div class="customClass">
               <button
                 id="clickBtn"
@@ -88,8 +99,9 @@ function App(props) {
                 <label class="label-custom"> Category: CUSTOM </label>
               </div>
             </div>
-          </div>
-          <div class="part4">
+          </div */}
+          >
+          {/*           <div class="part4">
             <div class="formClass">
               <div class="up">
                 <label class="label-1">Question:</label>
@@ -110,7 +122,7 @@ function App(props) {
                 Add{" "}
               </button>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
