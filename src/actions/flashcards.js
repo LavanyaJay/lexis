@@ -20,3 +20,12 @@ export function getFlashCards(id) {
       .catch(err => console.log(err));
   };
 }
+
+export function addFlashCards(id, data) {
+  axios
+    .post(`http://localhost:4000/lang/${id}/flashcards`, data)
+    .then(response => {
+      console.log("in action: ", response.data);
+    })
+    .catch(err => console.log(err));
+}

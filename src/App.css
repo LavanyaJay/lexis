@@ -1,5 +1,5 @@
 body {
-  background: url("https://thumbs.dreamstime.com/b/vector-feminine-mint-green-white-monochrome-foliage-seamless-pattern-background-perfect-women-s-clothing-textile-wallpaper-117591480.jpg")
+  background: url("https://cdn10.bigcommerce.com/s-9qugz4w/products/11359/images/12196/CHR257034__52547.1417135790.1280.1280.jpg?c=2")
     no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -49,6 +49,8 @@ body {
   width: 70vw;
   border: 1px solid black;
   margin-left: 3vw;
+  display: flex;
+  flex-direction: column;
 }
 .categoryClass {
   display: flex;
@@ -70,21 +72,21 @@ body {
 }
 .playBtnClass {
   height: 5vh;
-  width: 5vw;
-  background: green;
+  width: 8vw;
+  background: rgb(68, 129, 92);
   margin-top: 3vh;
 }
 .nextBtnClass {
   height: 5vh;
   width: 5vw;
-  background: green;
+  background: rgb(68, 129, 92);
   margin-top: 2vh;
 }
 
 .clickBtnClass {
   height: 5vh;
   width: 10vw;
-  background: green;
+  background: rgb(68, 129, 92);
   margin-top: 2vh;
 }
 
@@ -120,7 +122,7 @@ body {
 
 .card-front {
   position: absolute;
-  background-color: lightblue;
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn0-L1uJQwHrDfkMhTENF2ttz9zH7Vcy1g_HSsy5am5NT3DI7n&s");
   height: 100%;
   width: 100%;
   display: block;
@@ -132,7 +134,7 @@ body {
 
 .card-back {
   position: absolute;
-  background-color: rgb(243, 217, 217);
+  background: url("http://www.talencia.cat/mypics/s/11/114147_mint-green-watercolor-background.jpg");
   height: 100%;
   width: 100%;
   display: block;
@@ -157,15 +159,6 @@ body {
 }
 /* Enter Input Styling*/
 
-.formClass {
-  height: 160px;
-  width: 300px;
-  margin-top: 10px;
-  margin-left: 150px;
-  background: lightblue;
-  border: darkblue 3px solid;
-}
-
 .up,
 .down {
   height: 30px;
@@ -173,20 +166,23 @@ body {
   margin-top: 20px;
 }
 
-.input-1,
-.input-2 {
-  width: 200px;
-  height: inherit;
-  background: rgb(235, 235, 228);
+.input {
+  display: flex;
+  justify-content: space-between;
+
+  width: 50vw;
+  margin-top: 3vh;
 }
 
-.input-2 {
-  margin-left: 8px;
+.label {
+  margin-left: 2vw;
 }
-
+.field {
+  width: 30vw;
+  height: 4vh;
+}
 .addBtnClass {
   height: 30px;
   width: 130px;
-  margin-top: 20px;
-  margin-left: 100px;
+  margin-top: 2vh;
 }
