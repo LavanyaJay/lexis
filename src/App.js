@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import Language from "../src/components/Language";
 import Spinner from "react-bootstrap/Spinner";
 import { withRouter } from "react-router-dom";
+import { getFlashCards } from "./actions/flashcards";
 import "./App.css";
 
 function App(props) {
@@ -11,6 +13,10 @@ function App(props) {
   const [showLoading, setShowLoading] = useState(true);
 
   const [selectValue, setSelectValue] = useState("");
+
+  const [flashcards] = useSelector(state => state.flashcards);
+
+  const dispatch = useDispatch();
 
   const apiUrl = "http://localhost:4000/langs";
   useEffect(() => {
@@ -26,8 +32,7 @@ function App(props) {
   }, []);
 
   const onClickHandler = () => {
-    console.log("Onclick");
-    console.log("Selected: " + selectValue);
+    dispatch(getFlashCards(selectValue));
   };
 
   return (

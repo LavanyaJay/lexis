@@ -17,8 +17,10 @@ export default function Language(props) {
             >
               {console.log(data)}
               <option></option>
-              {data.langs.map((item, idx) => (
-                <option key={idx}>{item.name}</option>
+              {data.langs.map((item, id) => (
+                <option value={item.id} key={id}>
+                  {item.name}
+                </option>
               ))}
             </select>
           )}
