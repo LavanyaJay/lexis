@@ -15,7 +15,6 @@ export default function Language(props) {
                 props.setSelectValue(e.target.value);
               }}
             >
-              {console.log(data)}
               <option></option>
               {data.langs.map((item, id) => (
                 <option value={item.id} key={id}>
