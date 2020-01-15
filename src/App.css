@@ -1,38 +1,188 @@
-.App {
+body {
+  background: url("https://thumbs.dreamstime.com/b/vector-feminine-mint-green-white-monochrome-foliage-seamless-pattern-background-perfect-women-s-clothing-textile-wallpaper-117591480.jpg")
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+.container {
+  background: url("https://elkgroveses.com/image/150318-full_lederer-criss-cross-33-x-20-5-geometric-3d-embossed-wallpaper.jpg")
+    no-repeat fixed center;
+  border: 3px solid green;
+  height: 80vh;
+  width: 80%;
+  margin: auto;
   text-align: center;
+  margin-top: 50px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: auto;
+
+  justify-content: space-evenly;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.part1 {
+  margin-top: 10px;
+  width: 30%;
+  border: 1px solid black;
+  height: 35vh;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.part2 {
+  margin-top: 10px;
+  width: 55%;
+  height: 35vh;
+  border: 1px solid green;
+}
+.part3 {
+  height: 35vh;
+  width: 30%;
+  border: 1px solid black;
+}
+.part4 {
+  height: 35vh;
+  width: 55%;
+  border: 1px solid black;
+}
+.categoryClass {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  margin-top: 10vh;
 }
 
-.App-link {
-  color: #61dafb;
+.labelClass {
+  font-weight: bold;
+}
+.selectBtnClass {
+  height: 5vh;
+  width: 10vw;
+  margin-left: 5px;
+}
+.playBtnClass {
+  height: 5vh;
+  width: 5vw;
+  background: green;
+  margin-top: 3vh;
+}
+.nextBtnclass {
+  height: 30px;
+  width: 130px;
+  margin-top: 30px;
+  margin-left: 220px;
+}
+/*Card syles */
+
+.card-wrapper {
+  width: 300px;
+  height: 200px;
+  border: 1px solid black;
+  -webkit-perspective: 800px;
+  -moz-perspective: 800px;
+  -ms-perspective: 800px;
+  -o-perspective: 800px;
+  perspective: 800px;
+  margin: auto;
+  text-align: center;
+  margin-top: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card {
+  position: absolute;
+  height: 200px;
+  width: 300px;
+
+  -webkit-transition: 0.8s;
+  transition: transform 0.8s;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.card-front {
+  position: absolute;
+  background-color: lightblue;
+  height: 100%;
+  width: 100%;
+  display: block;
+  text-align: center;
+  border-style: solid;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card-back {
+  position: absolute;
+  background-color: rgb(243, 217, 217);
+  height: 100%;
+  width: 100%;
+  display: block;
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card:hover {
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+
+#qcard,
+#acard {
+  width: 250px;
+  margin-left: 20px;
+  margin-top: 80px;
+  font-weight: bolder;
+  font-size: 20px;
+}
+/* Enter Input Styling*/
+
+.formClass {
+  height: 160px;
+  width: 300px;
+  margin-top: 10px;
+  margin-left: 150px;
+  background: lightblue;
+  border: darkblue 3px solid;
+}
+
+.up,
+.down {
+  height: 30px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.input-1,
+.input-2 {
+  width: 200px;
+  height: inherit;
+  background: rgb(235, 235, 228);
+}
+
+.input-2 {
+  margin-left: 8px;
+}
+
+.addBtnClass {
+  height: 30px;
+  width: 130px;
+  margin-top: 20px;
+  margin-left: 100px;
+}
+.clickBtnClass {
+  height: 30px;
+  width: 180px;
+  margin-top: 20px;
+  margin-left: 60px;
 }
