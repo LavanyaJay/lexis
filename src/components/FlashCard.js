@@ -11,7 +11,7 @@ export default function FlashCard(props) {
             {flashCard && <p id="qcard">{flashCard.word}</p>}
             {!flashCard && <p id="qcard">Play Flashcard</p>}
           </div>
-          <div class="card-back">
+          <div className="card-back">
             {flashCard && <p id="acard">{flashCard.meaning}</p>}
             {!flashCard && <p id="acard">Besto!!</p>}
           </div>

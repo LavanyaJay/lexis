@@ -1,36 +1,46 @@
 import React from "react";
-import { Field, reduxForm } from "redux-form";
+import { Field, Form, reduxForm } from "redux-form";
 
 function AddCustomForm(props) {
+  const ans = "Answer";
   return (
-    <div class="part4">
-      <form onSubmit={props.addFlashCard}>
-        <div>
-          <label>Question</label>
+    <div className="part4">
+      <Form onSubmit={props.addFlashCard} className="form-group form-inline">
+        <div className="input">
+          <label className="label">Question</label>
           <div>
             <Field
+              className="field"
               name="word"
+              value={props.formData.word}
               component="textarea"
               type="text"
               placeholder="Enter the word"
+              onChange={props.onChangeHandler}
             />
           </div>
         </div>
-        <div>
-          <label>Answer </label>
+        <div className="input">
+          <label className="label">{ans}</label>
+
           <div>
             <Field
-              name="lastName"
+              className="field"
+              name="meaning"
+              value={props.formData.meaning}
               component="textarea"
               type="text"
               placeholder="Meaning of the word"
+              onChange={props.onChangeHandler}
             />
           </div>
         </div>
         <div>
-          <button type="submit">Submit</button>
+          <button className="addBtnClass" type="submit">
+            Add
+          </button>
         </div>
-      </form>
+      </Form>
     </div>
   );
 }

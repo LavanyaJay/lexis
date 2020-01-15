@@ -6,18 +6,21 @@ import FlashCard from "../src/components/FlashCard";
 import AddCustomForm from "./components/AddCustomForm";
 import Spinner from "react-bootstrap/Spinner";
 import { withRouter } from "react-router-dom";
-import { getFlashCards } from "./actions/flashcards";
+import { getFlashCards, addFlashCards } from "./actions/flashcards";
 import "./App.css";
 
 function App(props) {
   const [data, setData] = useState([]);
 
   const [showLoading, setShowLoading] = useState(true);
+
   const [showForm, setShowForm] = useState(false);
 
   const [selectValue, setSelectValue] = useState("");
 
   const flashcards = useSelector(state => state.flashcards);
+
+  const [formData, setFormData] = useState({ word: "", meaning: "" });
 
   let [index, setIndex] = useState(0);
 
@@ -45,7 +48,16 @@ function App(props) {
     setShowForm(true);
   };
 
-  const addFlashCard = () => {};
+  const onChangeHandler = e => {
+    const { name, value } = e.target;
+    console.log(e.target.value);
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const addFlashCard = () => {
+    console.log("formdata:", formData);
+    dispatch(addFlashCards(selectValue, formData));
+  };
 
   let flashCard = flashcards[index];
 
@@ -79,6 +91,8 @@ function App(props) {
             <AddCustomForm
               selectValue={selectValue}
               addFlashCard={addFlashCard}
+              onChangeHandler={onChangeHandler}
+              formData={formData}
             />
           )}
         </div>
